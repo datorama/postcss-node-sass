@@ -24,7 +24,7 @@ module.exports = postcss.plugin('postcss-node-sass', opt => (root, result) => {
     });
     return new Promise((resolve, reject) => sass.render(
         opt,
-        (err, res) => err ? console.log(err) && reject(err) : resolve(res)
+        (err, res) => err ? console.log(err) && reject(err) : console.log('rendering sass') && resolve(res)
     )).then(res => postcss.parse(res.css.toString(), {
         from: result.opts.from,
         map: {
